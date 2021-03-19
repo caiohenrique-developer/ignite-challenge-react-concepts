@@ -26,6 +26,7 @@ export function TaskList() {
 
     setTasks([...tasks, createTask]);
     setNewTaskTitle('');
+    // setNewTaskTitle(`Código aleatório: ${Math.random().toFixed(2)}`);
   }
 
   function handleToggleTaskCompletion(id: number) {
@@ -57,7 +58,7 @@ export function TaskList() {
             onChange={(e) => setNewTaskTitle(e.target.value)}
             value={newTaskTitle}
           />
-          <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask}>
+          <button type="submit" data-testid="add-task-button" onClick={handleCreateNewTask} disabled={!newTaskTitle}>
             <FiCheckSquare size={16} color="#fff"/>
           </button>
         </div>
@@ -85,6 +86,7 @@ export function TaskList() {
               </button>
             </li>
           ))}
+          
         </ul>
       </main>
     </section>
